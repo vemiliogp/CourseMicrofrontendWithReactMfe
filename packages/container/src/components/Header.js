@@ -16,9 +16,11 @@ export default function Header({ signedIn, onSignOut }) {
     <>
       <AppBar
         position="static"
-        color="default"
         elevation={0}
-        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+        sx={{
+          borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
+          backgroundColor: (theme) => theme.palette.background.paper,
+        }}
       >
         <Toolbar
           sx={{
@@ -28,8 +30,8 @@ export default function Header({ signedIn, onSignOut }) {
         >
           <Typography
             variant="h6"
-            color="inherit"
             noWrap
+            color="textPrimary"
             component={RouterLink}
             to="/"
             sx={{ textDecoration: "none" }}
