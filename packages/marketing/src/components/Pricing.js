@@ -16,7 +16,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link style={{ textDecoration: "none" }} href="https://mui.com/">
         Your Website
       </Link>{" "}
       {new Date().getFullYear()}
@@ -207,7 +207,7 @@ export default function Pricing() {
               <Typography variant="h6" color="textPrimary" gutterBottom>
                 {footer.title}
               </Typography>
-              <ul>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
                 {footer.description.map((item) => (
                   <li key={item}>
                     <Link href="#" variant="subtitle1" color="textSecondary">

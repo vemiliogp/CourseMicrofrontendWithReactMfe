@@ -5,9 +5,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "react-router-dom";
 
-export default function Header({ signedIn, onSignOut }) {
+export default function Header({ isSignedIn, onSignOut }) {
   const onClick = () => {
-    if (signedIn && onSignOut) {
+    if (isSignedIn && onSignOut) {
       onSignOut();
     }
   };
@@ -42,14 +42,14 @@ export default function Header({ signedIn, onSignOut }) {
             color="primary"
             variant="outlined"
             component={RouterLink}
-            to={signedIn ? "/" : "/auth/signin"}
+            to={isSignedIn ? "/" : "/auth/signin"}
             onClick={onClick}
             sx={{
               margin: (theme) => theme.spacing(1, 1.5),
               textDecoration: "none",
             }}
           >
-            {signedIn ? "Logout" : "Login"}
+            {isSignedIn ? "Logout" : "Login"}
           </Button>
         </Toolbar>
       </AppBar>

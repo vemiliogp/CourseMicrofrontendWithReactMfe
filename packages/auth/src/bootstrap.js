@@ -1,11 +1,15 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { createMemoryRouter, createBrowserRouter } from "react-router-dom";
-import routes from "./routes";
+import getRoutes from "./routes";
 import App from "./App";
 
-const mount = (el, { onNavigate, onSignIn, initialPath, defaultRouter }) => {
-  const router = defaultRouter || createMemoryRouter(routes, { initialEntries: [initialPath] })
+const mount = (el, { onNavigate, onSignIn = () => {}, initialPath }) => {
+  const routes = getRoutes(onSignIn);
+
+  const router = onNavigate
+    ? createMemoryRouter(routes, { initialEntries: [initialPath] })
+    : createBrowserRouter(routes);
 
   if (onNavigate) {
     router.subscribe(({ location }) => onNavigate(location));
@@ -23,10 +27,10 @@ const mount = (el, { onNavigate, onSignIn, initialPath, defaultRouter }) => {
 };
 
 if (process.env.NODE_ENV === "development") {
-  const devRoot = document.querySelector("#_marketing-dev-root");
+  const devRoot = document.querySelector("#_auth-dev-root");
 
   if (devRoot) {
-    mount(devRoot, { defaultRouter: createBrowserRouter(routes) });
+    mount(devRoot, {});
   }
 }
 

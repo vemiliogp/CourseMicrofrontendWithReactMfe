@@ -6,7 +6,7 @@ import createCache from "@emotion/cache";
 
 const theme = createTheme({});
 const cache = createCache({
-  key: "ma",
+  key: "au",
   prepend: true,
 });
 

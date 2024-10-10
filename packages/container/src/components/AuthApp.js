@@ -1,8 +1,8 @@
-import { mount } from "marketing/MarketingApp";
+import { mount } from "auth/AuthApp";
 import React, { useRef, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-export default () => {
+export default ({ onSignIn }) => {
   const ref = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,6 +18,7 @@ export default () => {
           navigate(nextPathname);
         }
       },
+      onSignIn,
     });
 
     setOnParentNavigate(() => onHostNavigate);

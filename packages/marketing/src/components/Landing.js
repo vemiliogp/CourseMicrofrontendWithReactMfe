@@ -15,7 +15,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <MaterialLink component={Link} to="/" color="inherit">
+      <MaterialLink sx={{ textDecoration: "none" }} component={Link} to="/">
         Your Website
       </MaterialLink>{" "}
       {new Date().getFullYear()}
