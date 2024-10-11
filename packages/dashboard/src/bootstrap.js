@@ -9,6 +9,9 @@ const mount = (el) => {
   app.use(PrimeVue, {
     theme: {
       preset: Aura,
+      options: {
+        darkModeSelector: false || "none",
+      },
     },
   });
 
