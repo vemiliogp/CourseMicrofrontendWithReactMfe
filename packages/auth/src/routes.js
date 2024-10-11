@@ -2,7 +2,7 @@ import React from "react";
 import SignIn from "./components/SignIn";
 import SignOut from "./components/SignUp";
 
-export default (onSignIn) => {
+export default ({ onSignIn = () => {} }) => {
   return [
     {
       path: "/auth/signin",
